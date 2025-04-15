@@ -8,3 +8,14 @@
 - Oscar Silva-Santiago
 - Carter Tipton
 - Matthew Barnes
+
+To save required libs
+`pip freeze > requirements.txt`
+
+To install required libs
+`pip install -r requirements.txt`
+
+To run server
+`python manage.py runserver`
+
+http://127.0.0.1:8000/
