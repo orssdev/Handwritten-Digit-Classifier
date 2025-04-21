@@ -24,7 +24,7 @@ body{
     border-radius: 25px;
 }
 
-#clear {
+.control {
     height: 50px;
     width: 200px;
     font-size: 24px;

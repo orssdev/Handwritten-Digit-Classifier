@@ -1,6 +1,11 @@
 const canvas = document.getElementById('writing-canvas');
 const ctx = canvas.getContext('2d');
 const clear = document.getElementById("clear");
+const write = document.getElementById("write");
+const erase = document.getElementById("erase");
+
+ctx.fillStyle = 'white';
+ctx.fillRect(0, 0, 1200, 400)
 
 let isPainting = false;
 let lineWidth = 5;
@@ -43,6 +48,17 @@ const draw = e => {
 
 clear.addEventListener('click', () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillRect(0, 0, 1200, 400);
+});
+
+write.addEventListener('click', () => {
+    lineWidth = 5;
+    ctx.strokeStyle = '#000000';
+});
+
+erase.addEventListener('click', () => {
+    lineWidth = 10;
+    ctx.strokeStyle = '#ffffff';
 });
 
 canvas.addEventListener('mousemove', draw);
