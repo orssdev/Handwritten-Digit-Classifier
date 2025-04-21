@@ -1,0 +1,48 @@
+const canvas = document.getElementById('writing-canvas');
+const ctx = canvas.getContext('2d');
+const clear = document.getElementById("clear");
+
+let isPainting = false;
+let lineWidth = 5;
+let startX;
+let startY;
+
+canvas.addEventListener('mousedown', (e) => {
+    const canvasRect = canvas.getBoundingClientRect();
+    isPainting = true;
+    startX = e.clientX - canvasRect.left;
+    startY = e.clientY - canvasRect.top;
+    ctx.moveTo(startX, startY);
+});
+
+canvas.addEventListener('mouseup', (e) => {
+    isPainting = false;
+    ctx.stroke();
+    ctx.beginPath();
+});
+
+const draw = e => {
+    if(!isPainting) 
+    {
+        return;
+    }
+
+    ctx.lineWidth = lineWidth;
+    ctx.lineCap = 'round';
+
+    const canvasRect = canvas.getBoundingClientRect();
+    const currentX = e.clientX - canvasRect.left;
+    const currentY = e.clientY - canvasRect.top;
+
+    ctx.lineTo(currentX, currentY);
+    ctx.stroke();
+
+    lastX = currentX;
+    lastY = currentY;
+}
+
+clear.addEventListener('click', () => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+});
+
+canvas.addEventListener('mousemove', draw);
