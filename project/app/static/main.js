@@ -73,7 +73,9 @@ test.addEventListener('click', () => {
     output.innerText = 'Output:'
     fetch('test/', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json'},
+        headers: { 
+            'Content-Type': 'application/json'
+        },
         body: JSON.stringify({ image: dataURL })
     })
     .then(res => res.json())

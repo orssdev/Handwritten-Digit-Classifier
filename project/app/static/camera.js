@@ -4,23 +4,30 @@ navigator.mediaDevices.getUserMedia({ video: true })
     .then(stream => {
         const videoElement = document.getElementById('video');
         videoElement.srcObject = stream;
+
+        test.addEventListener('click', () => {
+            output.innerText = 'Output:'
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d');
+            canvas.width = videoElement.videoWidth;
+            canvas.height = videoElement.videoHeight;
+            context.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
+            const frameData = canvas.toDataURL('image/png');
+            fetch('test/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ image: frameData })
+            })
+            .then(res => res.json())
+            .then(data => {
+            });
+        });
     })
     .catch(err => {
         console.log('Error accessing camera: ', err);
     });
-
-test.addEventListener('click', () => {
-    output.innerText = 'Output:'
-    fetch('test/')
-    .then(res => res.json())
-    .then(data => {
-        let numbers = data.Numbers;
-        for(const number of numbers)
-        {
-            output.innerText += ` ${number}`
-        }
-    });
-});
 
 canvas.addEventListener('click', () => {
     window.location.href = '/';
