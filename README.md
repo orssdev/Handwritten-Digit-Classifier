@@ -16,7 +16,7 @@ To install required libs
 `pip install -r requirements.txt`  
 Note - if this does not work, just pip install django
 
-To run server
+To run server, under project directory
 `python manage.py runserver`
 
 Go launch the web app after running script  
