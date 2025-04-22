@@ -5,19 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'styles.css' %}">
-    <script src="{% static 'main.js' %}" defer></script>
-    <title>App</title>
+    <script src="{% static 'camera.js' %}" defer></script>
+    <title>Camera</title>
 </head>
 <body>
     <div id="wrapper">
         <div id="controls">
-            <button class="control" id="clear">Clear</button>
-            <button class="control" id="write">Write</button>
-            <button class="control" id="erase">Erase</button>
             <button class="control" id="test">Test</button>
-            <button class="control" id="camera">Camera</button>
+            <button class="control" id="canvas">Canvas</button>
         </div>
-        <canvas id="writing-canvas" height="500" width="500"></canvas>
+        <video id="video" autoplay></video>
         <h1 id="output">Output:</h1>
     </div>
 </body>

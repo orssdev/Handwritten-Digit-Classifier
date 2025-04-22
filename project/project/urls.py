@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('app.urls')),
     path('test/', send_test),
+    path('camera/test/', send_test),
 ]

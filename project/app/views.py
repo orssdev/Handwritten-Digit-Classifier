@@ -32,3 +32,7 @@ def send_prediction(request):
         return JsonResponse({'prediction': data})
     else:
         return JsonResponse({'error': 'Invalid request method.'}, status=400)
+    
+
+def camera(request):
+    return render(request, 'app/camera.html')

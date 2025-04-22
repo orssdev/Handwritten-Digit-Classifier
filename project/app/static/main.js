@@ -4,6 +4,7 @@ const clear = document.getElementById("clear");
 const write = document.getElementById("write");
 const erase = document.getElementById("erase");
 const test = document.getElementById("test");
+const camera = document.getElementById("camera");
 let output = document.getElementById('output');
 
 ctx.fillStyle = 'white';
@@ -50,7 +51,7 @@ const draw = e => {
 
 clear.addEventListener('click', () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.fillRect(0, 0, 1200, 400);
+    ctx.fillRect(0, 0, 500, 500);
     output.innerText = 'Output:'
     
 });
@@ -85,13 +86,6 @@ test.addEventListener('click', () => {
     });
 });
 
-navigator.mediaDevices.getUserMedia({ video: true })
-            .then(stream => {
-                // Get the video element
-                const videoElement = document.getElementById('video');
-                // Set the source of the video element to the stream
-                videoElement.srcObject = stream;
-            })
-            .catch(err => {
-                console.log('Error accessing camera: ', err);
-            });
+camera.addEventListener('click', () => {
+    window.location.href = 'camera/';
+});
