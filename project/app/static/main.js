@@ -4,6 +4,7 @@ const clear = document.getElementById("clear");
 const write = document.getElementById("write");
 const erase = document.getElementById("erase");
 const test = document.getElementById("test");
+let output = document.getElementById('output');
 
 ctx.fillStyle = 'white';
 ctx.fillRect(0, 0, 1200, 400)
@@ -50,6 +51,8 @@ const draw = e => {
 clear.addEventListener('click', () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.fillRect(0, 0, 1200, 400);
+    output.innerText = 'Output:'
+    
 });
 
 write.addEventListener('click', () => {
@@ -65,9 +68,13 @@ erase.addEventListener('click', () => {
 canvas.addEventListener('mousemove', draw);
 
 test.addEventListener('click', () => {
-    let output = document.getElementById('output');
+    const dataURL = canvas.toDataURL('image/png');
     output.innerText = 'Output:'
-    fetch('/test')
+    fetch('test/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json'},
+        body: JSON.stringify({ image: dataURL })
+    })
     .then(res => res.json())
     .then(data => {
         let numbers = data.Numbers;
