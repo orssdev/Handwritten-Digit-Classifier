@@ -19,7 +19,7 @@ Note - if this does not work, just pip install django
 To run server
 `python manage.py runserver`
 
-Go launch the web app after running script
+Go launch the web app after running script  
 http://127.0.0.1:8000/  
 or  
 http://localhost:8000/
