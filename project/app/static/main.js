@@ -3,6 +3,7 @@ const ctx = canvas.getContext('2d');
 const clear = document.getElementById("clear");
 const write = document.getElementById("write");
 const erase = document.getElementById("erase");
+const test = document.getElementById("test");
 
 ctx.fillStyle = 'white';
 ctx.fillRect(0, 0, 1200, 400)
@@ -62,3 +63,14 @@ erase.addEventListener('click', () => {
 });
 
 canvas.addEventListener('mousemove', draw);
+
+test.addEventListener('click', () => {
+    const output = document.getElementById('output');
+    output.innerText = 'Output:';
+    let num = 0;
+    for (let i = 0; i < 10; i++) 
+    {
+        num = Math.floor(Math.random() * 100) + 1;
+        output.innerText += ` ${num}`; 
+    }
+});
