@@ -77,3 +77,14 @@ test.addEventListener('click', () => {
         }
     });
 });
+
+// navigator.mediaDevices.getUserMedia({ video: true })
+//             .then(stream => {
+//                 // Get the video element
+//                 const videoElement = document.getElementById('video');
+//                 // Set the source of the video element to the stream
+//                 videoElement.srcObject = stream;
+//             })
+//             .catch(err => {
+//                 console.log('Error accessing camera: ', err);
+//             });
