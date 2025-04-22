@@ -8,11 +8,11 @@ mnist = tf.keras.datasets.mnist
 
 # print(x_train[1])
 
-plt.figure()
-plt.imshow(x_test[0], cmap='gray')
-plt.colorbar()
-plt.grid(False)
-plt.show()
+# plt.figure()
+# plt.imshow(x_test[0], cmap='gray')
+# plt.colorbar()
+# plt.grid(False)
+# plt.show()
 
 # Normalize the images to a range of 0 to 1 before feeding them to the neural network
 x_train = x_train / 255.0
@@ -36,6 +36,8 @@ probability_model = tf.keras.Sequential([
     model,
     tf.keras.layers.Softmax()
 ])
+
+model.save('testModel.h5')
 
 predictions = probability_model(x_test[:5])
 print(predictions[0])
