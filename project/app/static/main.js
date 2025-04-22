@@ -65,12 +65,15 @@ erase.addEventListener('click', () => {
 canvas.addEventListener('mousemove', draw);
 
 test.addEventListener('click', () => {
-    const output = document.getElementById('output');
-    output.innerText = 'Output:';
-    let num = 0;
-    for (let i = 0; i < 10; i++) 
-    {
-        num = Math.floor(Math.random() * 100) + 1;
-        output.innerText += ` ${num}`; 
-    }
+    let output = document.getElementById('output');
+    output.innerText = 'Output:'
+    fetch('/test')
+    .then(res => res.json())
+    .then(data => {
+        let numbers = data.Numbers;
+        for(const number of numbers)
+        {
+            output.innerText += ` ${number}`
+        }
+    });
 });
