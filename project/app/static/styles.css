@@ -33,3 +33,12 @@ body{
 h1 {
     color: white;
 }
+
+#corner-gif {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 100px; /* Adjust size as needed */
+    height: auto;
+    z-index: 10; /* Ensure it appears above other elements */
+}
