@@ -25,5 +25,18 @@ image = image_preprocessing(image)
 
 predictions = probability_model(image)
 
-print(predictions[0])
+# print(predictions[0])
+
+def get_prediction(predictions):
+    confidence = 0
+    for i in range(10):
+        if (predictions)[i] > confidence:
+            confidence = predictions[i]
+            number = i
+
+    return (number, round(float(confidence),3))
+
+n = (get_prediction(predictions[0]))[0]     # predicted number
+c = (get_prediction(predictions[0]))[1]     # confidence
+print("Predicted number of "+str(n)+" with a confidence of " +str(c * 100) + "%")
 
