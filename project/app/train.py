@@ -9,7 +9,7 @@ mnist = tf.keras.datasets.mnist
 # print(x_train[1])
 
 plt.figure()
-plt.imshow(x_train[2], cmap='gray')
+plt.imshow(x_test[0], cmap='gray')
 plt.colorbar()
 plt.grid(False)
 plt.show()
@@ -30,4 +30,12 @@ model.compile(optimizer='adam',
               metrics=['accuracy'])
 
 model.fit(x_train, y_train, epochs=10)  # train the model
-model.evaluate(x_test, y_test)  # evaluate the model
+#model.evaluate(x_test, y_test)  # evaluate the model
+
+probability_model = tf.keras.Sequential([
+    model,
+    tf.keras.layers.Softmax()
+])
+
+predictions = probability_model(x_test[:5])
+print(predictions[0])
