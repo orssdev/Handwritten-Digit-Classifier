@@ -6,7 +6,6 @@ import matplotlib.pyplot as plt
 from io import BytesIO
 
 
-
 def image_preprocessing(image_bytes):
     image = Image.open(BytesIO(image_bytes)).convert("L")
     image = ImageOps.invert(image)
@@ -22,12 +21,11 @@ def image_preprocessing(image_bytes):
     return data
 
 def predict_digit(image_bytes):
-    # Load the model
-    model = load_model('app/testModel.h5')
-    probability_model = tf.keras.Sequential([
-        model,
-        tf.keras.layers.Softmax()
-    ])
+    model = load_model('app/Digitron.h5')
+    # probability_model = tf.keras.Sequential([
+    #     model,
+    #     tf.keras.layers.Softmax()
+    # ])
 
     img = image_preprocessing(image_bytes)
 
@@ -35,7 +33,7 @@ def predict_digit(image_bytes):
     # plt.title("Processed Input")
     # plt.show()
 
-    predictions = probability_model(img)
+    predictions = model(img)
 
     confidence = 0
     for i in range(10):
@@ -50,4 +48,3 @@ def predict_digit(image_bytes):
         "digit": number,
         "confidence": confidence
     }
-
