@@ -57,12 +57,10 @@ clear.addEventListener('click', () => {
 });
 
 write.addEventListener('click', () => {
-    lineWidth = 5;
     ctx.strokeStyle = '#000000';
 });
 
 erase.addEventListener('click', () => {
-    lineWidth = 10;
     ctx.strokeStyle = '#ffffff';
 });
 
