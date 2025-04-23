@@ -11,7 +11,7 @@ ctx.fillStyle = 'white';
 ctx.fillRect(0, 0, 1200, 400)
 
 let isPainting = false;
-let lineWidth = 5;
+let lineWidth = 15;
 let startX;
 let startY;
 
@@ -80,11 +80,7 @@ test.addEventListener('click', () => {
     })
     .then(res => res.json())
     .then(data => {
-        let numbers = data.Numbers;
-        for(const number of numbers)
-        {
-            output.innerText += ` ${number}`
-        }
+        output.innerText = `Output: ${data.digit} confidence: ${data.confidence}`;
     });
 });
 

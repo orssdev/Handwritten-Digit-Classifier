@@ -5,6 +5,7 @@ from django.http import JsonResponse
 import random
 import base64
 import json
+from .digit_model import predict_digit
 
 # Create your views here.
 def home(request):
@@ -16,23 +17,11 @@ def send_test(request):
         data = json.loads(request.body)
         image_data = data['image'].split(',')[1] 
         image_bytes = base64.b64decode(image_data)
-        print(image_bytes.hex())
-    data = []
-    for i in range(10):
-        data.append(random.randint(1, 100))
-    return JsonResponse({'Numbers': data})
 
-def send_prediction(request):
-    data = ""
-    if request.method == 'POST':
-        data = json.loads(request.body.decode('utf-8'))
-        print(data)
-        # Here you would typically process the data and return a prediction
-        # For now, we will just return the data back as a response
-        return JsonResponse({'prediction': data})
-    else:
-        return JsonResponse({'error': 'Invalid request method.'}, status=400)
+        result = predict_digit(image_bytes)
     
+        return JsonResponse(result)
+    return JsonResponse({"error": "Invalid request method."})
 
 def camera(request):
     return render(request, 'app/camera.html')
