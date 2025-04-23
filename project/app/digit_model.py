@@ -31,9 +31,9 @@ def predict_digit(image_bytes):
 
     img = image_preprocessing(image_bytes)
 
-    plt.imshow(img[0, :, :, 0], cmap='gray')
-    plt.title("Processed Input")
-    plt.show()
+    # plt.imshow(img[0, :, :, 0], cmap='gray')
+    # plt.title("Processed Input")
+    # plt.show()
 
     predictions = probability_model(img)
 

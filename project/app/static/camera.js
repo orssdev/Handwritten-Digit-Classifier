@@ -22,21 +22,13 @@ navigator.mediaDevices.getUserMedia({ video: true })
             })
             .then(res => res.json())
             .then(data => {
+                output.innerText = `Output: ${data.digit} confidence: ${data.confidence}`;
             });
         });
     })
     .catch(err => {
         console.log('Error accessing camera: ', err);
     });
-
-test.addEventListener('click', () => {
-    output.innerText = 'Output:'
-    fetch('test/')
-    .then(res => res.json())
-    .then(data => {
-        output.innerText = `Output: ${data.digit} confidence: ${data.confidence}`;
-    });
-});
 
 canvas.addEventListener('click', () => {
     window.location.href = '/';

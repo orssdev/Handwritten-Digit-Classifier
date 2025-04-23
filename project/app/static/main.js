@@ -8,7 +8,7 @@ const camera = document.getElementById("camera");
 let output = document.getElementById('output');
 
 ctx.fillStyle = 'white';
-ctx.fillRect(0, 0, 1200, 400)
+ctx.fillRect(0, 0, 500, 500)
 
 let isPainting = false;
 let lineWidth = 15;
