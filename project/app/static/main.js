@@ -2,6 +2,8 @@ const canvas = document.getElementById('writing-canvas');
 const ctx = canvas.getContext('2d');
 const clear = document.getElementById("clear");
 const write = document.getElementById("write");
+const big = document.getElementById("big");
+const small = document.getElementById("small");
 const erase = document.getElementById("erase");
 const test = document.getElementById("test");
 const camera = document.getElementById("camera");
@@ -58,6 +60,12 @@ clear.addEventListener('click', () => {
 
 write.addEventListener('click', () => {
     ctx.strokeStyle = '#000000';
+});
+big.addEventListener('click', () => {
+    lineWidth = 15;
+});
+small.addEventListener('click', () => {
+    lineWidth = 5;
 });
 
 erase.addEventListener('click', () => {
