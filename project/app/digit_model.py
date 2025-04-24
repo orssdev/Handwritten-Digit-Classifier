@@ -13,8 +13,8 @@ def image_preprocessing(image_bytes):
     image = ImageOps.fit(image, size, Image.Resampling.LANCZOS)
     image_array = np.asarray(image).astype(np.uint8)
 
-    threshold = 100
-    image_array = np.where(image_array > threshold, 255, 0)
+    # threshold = 30
+    # image_array = np.where(image_array > threshold, 255, 0)
 
     normalize_array = (image_array.astype(np.float32) / 255.0)
     data = np.expand_dims(normalize_array, axis=(0, -1))  # shape becomes (1, 28, 28, 1)
