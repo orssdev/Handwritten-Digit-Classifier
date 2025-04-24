@@ -35,7 +35,7 @@ def predict_digit(image_bytes):
     # plt.show()
 
     predictions = model(img)
-
+    # print("Predictions array:\n", predictions.numpy())
     confidence = 0
     for i in range(10):
         if (predictions[0][i] > confidence):
