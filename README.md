@@ -14,7 +14,7 @@ To save required libs
 
 To install required libs
 `pip install -r requirements.txt`  
-Note - if this does not work, just pip install django
+Note - if this does not work, just pip install django, mathplot, pandas, tensorflow, numpy and other stuff in requirements.txt
 
 To run server, under project directory
 `python manage.py runserver`
