@@ -4,6 +4,21 @@
 
 **Handwritten Digit Classifier**: Train an FNN on the MNIST dataset to recognize handwritten digits.
 
+# Demo
+<a href="https://youtu.be/m4ErF6vNHE0">
+  <img src="https://img.youtube.com/vi/m4ErF6vNHE0/0.jpg" alt="Watch the demo" width="600"/>
+</a>
+
+## Input
+
+Handwritten digit from frontend  
+<img src="./Image1.png" alt="Input digit" width="600"/>
+
+## Output
+
+The CNN model predicts the digit and provides a confidence score for each possible class.  
+<img src="./Image2.png" alt="Output prediction" width="600"/>
+
 **Team Members**
 - Oscar Silva-Santiago
 - Carter Tipton
